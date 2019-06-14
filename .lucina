@@ -1,0 +1,12 @@
+commands:
+    # Deployment commands for all environments.
+    all:
+        - 'echo "This is for all environments".'
+        - 'if [[ -f composer.json ]]; then composer install; fi'
+        - 'if [[ -f package.json ]]; then npm install; fi'
+
+    dev:
+        - 'echo "This is a DEV script!"'
+    
+    prod:
+        - 'echo "This is a PROD script!"'

@@ -1,15 +1,19 @@
 commands:
     # Deployment commands for all environments.
     all:
-        - 'echo "This is for all environments".'
-        - 'if [[ -f composer.json ]]; then composer install; fi'
-        - 'if [[ -f package.json ]]; then npm install; fi'
+        - shell: 'echo "This is for all environments".'
+        - shell: 'if [[ -f composer.json ]]; then composer install; fi'
+        - shell: 'if [[ -f package.json ]]; then npm install; fi'
 
     dev:
-        - 'echo "This is a DEV script!"'
-        - 'echo "Environment name {{env}}!"'
-        - 'echo "Working directory {{dir}}!"'
-        - 'echo "From procedure config (basePath): {{basePath}}, yes!"'
+        - shell: 'echo "This is a DEV script!"'
+        - shell: 'echo "Environment name {{env}}!"'
+        - shell: 'echo "Working directory {{dir}}!"'
+        - shell: 'echo "From procedure config (basePath): {{basePath}}, yes!"'
+        - task: 'composer'
+        - task: 'npm'
+        - node: 'bin/install'
+        - symfony: 'cache:clear'
     
     prod:
         - 'echo "This is a PROD script!"'

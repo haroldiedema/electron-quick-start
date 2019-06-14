@@ -12,8 +12,6 @@ commands:
         - shell: 'echo "From procedure config (basePath): {{basePath}}, yes!"'
         - task: 'composer'
         - task: 'npm'
-        - node: 'bin/install'
-        - symfony: 'cache:clear'
-    
+        
     prod:
         - 'echo "This is a PROD script!"'

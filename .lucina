@@ -1,9 +1,11 @@
 commands:
     # Deployment commands for all environments.
-    all:
-        - shell: 'echo "This is for all environments".'
-        - shell: 'if [[ -f composer.json ]]; then composer install; fi'
-        - shell: 'if [[ -f package.json ]]; then npm install; fi'
+    _pre:
+        - shell: 'echo "deploy-test for {{env}}!" > {{dir}}/deploy-test-pre.txt'
+
+    _post:
+        - shell: 'echo "deploy-test for {{env}}!" > {{dir}}/deploy-test-post.txt'
+        - chown: 'root:whoopsie'
 
     dev:
         - shell: 'echo "This is a DEV script!"'
@@ -15,3 +17,5 @@ commands:
         
     prod:
         - 'echo "This is a PROD script!"'
+        - task: 'composer'
+        - task: 'npm'

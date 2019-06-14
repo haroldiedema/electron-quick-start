@@ -7,7 +7,7 @@ commands:
     # Deployment commands to execute after environment specific commands are processed.
     _post:
         - shell: 'echo "deploy-test for {{env}}!" > {{dir}}/deploy-test-post.txt'
-        - chown: 'root:whoopsie'
+        - chown: 'nobody:nogroup'
 
     # Deployment commands for the "dev" environment.
     dev:

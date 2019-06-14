@@ -7,6 +7,9 @@ commands:
 
     dev:
         - 'echo "This is a DEV script!"'
+        - 'echo "Environment name {{env}}!"'
+        - 'echo "Working directory {{dir}}!"'
+        - 'echo "From procedure config (basePath): {{basePath}}, yes!"'
     
     prod:
         - 'echo "This is a PROD script!"'
